@@ -1,1 +1,1 @@
-# Site-Math-Club
+# ETHZ-Math-Club
