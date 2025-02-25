@@ -7,8 +7,7 @@
     <div class="col-md-4">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">Latest Problems</h5>
-                <p class="card-text">Explore mathematical problems used.</p>
+                <h5 class="card-title">Problems used</h5>
                 <a href="{{ url_for('problems') }}" class="btn btn-outline-primary">View Problems</a>
             </div>
         </div>
@@ -16,8 +15,7 @@
     <div class="col-md-4">
         <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">Solutions</h5>
-                <p class="card-text">solutions of the problems.</p>
+                <h5 class="card-title">Solutions of the problem</h5>
                 <a href="{{ url_for('solutions') }}" class="btn btn-outline-primary">View Solutions</a>
             </div>
         </div>
