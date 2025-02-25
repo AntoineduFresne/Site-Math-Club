@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
+from flask import render_template, request, flash, redirect, url_for
 
 class Base(DeclarativeBase):
     pass
@@ -32,3 +33,21 @@ db.init_app(app)
 with app.app_context():
     import models
     db.create_all()
+
+@app.route('/admin/add_problem', methods=['GET', 'POST'])
+def add_problem():
+    if request.method == 'POST':
+        title = request.form['title']
+        difficulty = request.form['difficulty']
+        pdf = request.files['pdf']
+        
+        if pdf and pdf.filename.endswith('.pdf'):
+            filename = os.path.join(app.config['UPLOAD_FOLDER'], pdf.filename)
+            pdf.save(filename)
+            flash('Problem uploaded successfully!', 'success')
+        else:
+            flash('Invalid file format. Please upload a PDF.', 'danger')
+        
+        return redirect(url_for('add_problem'))
+    
+    return render_template('add_problem.html')
