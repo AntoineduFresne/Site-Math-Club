@@ -4,7 +4,6 @@ from app import db
 class Problem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    difficulty = db.Column(db.String(20), nullable=False)
     pdf_path = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     solutions = db.relationship('Solution', backref='problem', lazy=True)
