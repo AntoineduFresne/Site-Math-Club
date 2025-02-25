@@ -16,8 +16,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Set secret key for session management
 app.secret_key = os.environ.get("SESSION_SECRET", "dev_key_123")  # Always use environment variable in production
 
-# Admin password
-app.config['ADMIN_PASSWORD'] = "d8g7HsmXes0zgH4efHvWB2MkV0cdiWh854kqeCHuf5gyHxFuDCzAbJyTNrBi4s4EuRf6iWXu95sqAgV1sj5f1PtV8k7Ja3VA5Cni"
+# Admin password from environment variable
+app.config['ADMIN_PASSWORD'] = os.environ.get('ADMIN_PASSWORD', "d8g7HsmXes0zgH4efHvWB2MkV0cdiWh854kqeCHuf5gyHxFuDCzAbJyTNrBi4s4EuRf6iWXu95sqAgV1sj5f1PtV8k7Ja3VA5Cni")
 
 # File upload configurations
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
